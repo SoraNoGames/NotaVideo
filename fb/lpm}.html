@@ -1,0 +1,75 @@
+<html>
+<head>
+  <title>Your Website Title</title>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+
+  <!-- Load Facebook SDK for JavaScript -->
+  <script>
+    window.fbAsyncInit = function() {
+
+      FB.init({
+        xfbml      : true,
+        version    : 'v8.0'
+      });
+    
+      // Get Embedded Video Player API Instance
+      var my_video_player;
+      FB.Event.subscribe('xfbml.ready', function(msg) {
+        if (msg.type === 'video') {
+          my_video_player = msg.instance;
+        }
+      });
+        
+        var player_status = "play";
+
+          function cambiar(){
+              my_video_player.play();
+            }
+
+            function pausa(){
+              my_video_player.pause();
+            }
+
+
+        $('body').on("keydown", function(e) {
+
+          if(player_status == "play"){
+
+                if (e.ctrlKey && e.which === 32) {
+                    pausa();
+                }
+
+                player_status = "pause";
+
+            }
+
+            else if(player_status == "pause"){
+
+
+                if (e.ctrlKey && e.which === 32) {
+                  cambiar();
+                }
+
+                player_status = "play";
+
+            }
+        });
+
+    };
+
+  </script>
+  <div id="fb-root"></div>
+  <script async defer src="https://connect.facebook.net/es_LA/sdk.js"></script>
+
+  <!-- Your embedded video player code -->
+  <div  
+    class="fb-video" 
+    data-href="https://www.facebook.com/watch/?v=2693021434351420" 
+    data-width="500" 
+    data-allowfullscreen="true"
+    autoplay = "true"></div>
+
+</body>
+</html>

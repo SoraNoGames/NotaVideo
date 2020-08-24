@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notavideo</title>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+	<link id="estilos" rel="stylesheet" type="text/css" href="dona.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Raleway:ital,wght@1,200&family=Saira+Semi+Condensed:wght@500&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" href="../img/mifavicon.png">
+	<meta charset="UTF-8">
+	<meta name="title" content="NotaVideo App para estudiantes y profesionales de la educación">
+    <meta name="description" content="Nota Video permite tomar nota de videos en la misma ventana donde se reproducen, facilitando el trabajo de resumen y analisis del mismo, permitiendo estudiar y aprender más rápido. #notavideo #youtubenotas #facebooknotas">
+    <meta name="keywords" content="editor,youtube,facebook,notas,en,video,redactar,resumir,notepad,jacetutoriales">
+  	<meta name="author" content="John Doe">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<meta name="google-site-verification" content="pjQFS-wCTeGVFeYV23BnokSs6wiIxAUMEXiuSrEDg5I" />
+</head>
+<body>
+
+<nav class="row main-container col-xs-12col-sm-8col-md-6col-lg-4" id="nav">
+
+	<div class="titulo start-xs">
+
+		<h1>Donaciones</h1>
+
+	</div>
+
+
+	<div class="back end-xs">
+
+		<a onclick="history.back()"><h1>Volver</h1>
+</a>
+
+	</div>
+
+
+</nav>		
+
+	<header class="row main-container center-xs header" id="f-row">
+		<div class="col-xs-9 col-sm-7 col-md-5 col-lg-3 contenedor">
+			<div>
+				<img id="img" src="../img/paypal.png">
+				<h3>Paypal</h3>
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+				<input type="hidden" name="cmd" value="_s-xclick" />
+				<input type="hidden" name="hosted_button_id" value="UAAPRZ6TT3HYN" />
+				<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+				<img alt="" border="0" src="https://www.paypal.com/en_AR/i/scr/pixel.gif" width="1" height="1" />
+				</form>
+			</div>
+		</div>
+
+		 <div class="col-xs-9 col-sm-7 col-md-5 col-lg-3 contenedor">
+			<div>
+				<form action="/procesar-pago" method="POST">
+  <script
+   src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+   data-preference-id="<?php echo $preference->id; ?>">
+  </script>
+</form>
+			</div>
+		</div>
+
+		<div class="col-xs-9 col-sm-7 col-md-5 col-lg-3 contenedor">
+			<div>
+				
+			</div>
+		</div> 
+
+	</header>
+	
+
+</body>
+</html>

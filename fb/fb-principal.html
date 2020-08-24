@@ -1,0 +1,349 @@
+
+<html onclick="myFunction()">
+<head>
+	<title>Notavideo</title>
+	<link rel="icon" type="image/png" href="../img/mifavicon2.ico"> 
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+	<link id="estilos" rel="stylesheet" type="text/css" href="./css/style-fb-cine.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+	<meta charset="UTF-8">
+	<meta name="title" content="NotaVideo App para estudiantes y profesionales de la educación">
+    <meta name="description" content="Nota Video permite tomar nota de videos en la misma ventana donde se reproducen, facilitando el trabajo de resumen y analisis del mismo, permitiendo estudiar y aprender más rápido. #notavideo #youtubenotas #facebooknotas">
+    <meta name="keywords" content="editor,youtube,facebook,notas,en,video,redactar,resumir,notepad,jacetutoriales">
+  	<meta name="author" content="John Doe">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<meta name="google-site-verification" content="pjQFS-wCTeGVFeYV23BnokSs6wiIxAUMEXiuSrEDg5I" />
+	<link href="https://fonts.googleapis.com/css2?family=Arsenal&family=Montserrat+Alternates:wght@100;400&display=swap" rel="stylesheet"> 
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+	<script src="./js/menu.js"></script>
+	<script async defer src="https://connect.facebook.net/es_LA/sdk.js"></script>
+</head>
+<body>
+
+	<header>
+		<nav class="row main-container nav_bar" id="nav">
+		<div id="nav-left" class="center-xs">
+			<img src="../img/logo.png" id = "logo">
+		</div>
+
+		<div id="nav-center">
+			<input type="text" name="link" id="enlace" placeholder="Pegar link del video" class="box"> <i onclick="limpiar()" id="borrar" class="fas fa-times-circle"></i></input><!-- Agrego espacios en el placeholder y en textos-->
+
+			<a href="#" id="iniciar" class="botones"> INICIAR </a>
+		</div>
+
+		<div class="" id="nav-right" >
+			<button id="switch" class="switch">
+				<span><i class="fas fa-sun"></i></span>
+				<span><i class="fas fa-moon"></i></span>
+			</button>
+			
+		</div>
+
+
+		<div class="menu">
+			
+			<img src="../img/menu.png" class="menu_icon">
+		</div>
+	</nav>
+
+	</header>
+
+	<section class="row center-xs" id= "seccion-video">
+
+			<div class= "col-xs-12 col-sm-8 col-md-8 col-lg-8" id = "contenedor-video"> 
+				<div id="videito" 
+    				class="fb-video" 
+   					data-href="https://www.facebook.com/watch/?v=316215466191395" 
+    				data-allowfullscreen="true"
+    				autoplay = "true"></div>
+			</div>  
+
+		<textarea class = "col-xs-12 col-sm-4 col-md-4 col-lg-4" id="texto" placeholder="Escribí en este lugar tus notas."></textarea>
+
+
+	</section>
+
+	<nav class="nav_menu" id="x">
+			<ul class="ul">
+				<li class="items"><a href="../yt/yt-principal.html" class="a">Notavideo Youtube</a></li>
+				<li class="items"><a href="fb-cine.html" id = "cambio" class="a">Cambiar aspecto</a></li>
+				<li class="items"><a class = "compartir a" id="noche">Modo Nocturno</a></li>
+				<li class="items"><a href="https://www.instagram.com/jace.si/" class="a">Instagram</a><span></span></li>
+				<li class="items"><a href="https://www.youtube.com/channel/UCIuEephCWSjFomnJONNnhsw" class="a">Canal de YouTube</a><span></span></li>
+				<li class="items"><a href="whatsapp://send?text=http://app.notavideo.com.ar/" data-text="BOTÓN COMPARTIR EN WHATSAPP EN MI PÁGINA WEB" data-action="share/whatsapp/share" class = "compartir a">Compartir en WhatsApp</a></li>
+				<li class="items"><a href="../creditos/creditos.html" class="a">Creditos</a></li>
+				<!-- <li class="items"><a href="../donaciones/dona.html" class="a">Donaciones</a></li> -->
+			</ul>
+		</nav>
+
+
+
+	<div id="herramientas" class = "center-xs">
+		<a href="#" id="copiar" class="botones" onclick="copiar()">Copiar texto</a>
+		<a href="#" id="guardar" class="botones">Guardar texto</a>
+		<input type = "text" name = "nombre" class = "titulo" id = "titulo" placeholder = "Nombre del archivo...">
+	</div>
+
+
+
+<script type="text/javascript">
+//**********************************BOTON DE LIMPIAR********************************/	
+
+	function limpiar() {
+  document.getElementById("enlace").value = "";
+}
+
+//***********************************MODO NOCTURUNO*********************************/	
+
+	const btnSwitch = document.querySelector('#switch');
+
+	btnSwitch.addEventListener('click', () => {
+		document.body.classList.toggle('dark');
+		btnSwitch.classList.toggle('active');
+	});
+
+	const modo = document.getElementById('noche');
+
+	modo.addEventListener('click', () => {
+		document.body.classList.toggle('dark');	
+	})
+
+			
+/***********************FUNCIÓN PARA COPIAR EL TEXTO*********************************/	
+
+	function copiar(){
+
+		
+		document.execCommand('copy');
+
+		   function addLink() {
+
+       			//Toma el texto seleccionado y le agrega la info extra
+
+       			var copyText = document.getElementById("texto");
+       			var link = $("#enlace").val();
+				copyText.select();
+				copyText.setSelectionRange(0, 99999);
+
+        		var selection = window.getSelection(),
+        		vidlink = '-------------------------------------------------- <br />' + link + '<br /> -------------------------------------------------- <br /> <br />'
+            	pagelink = '<br /><br /> --------------------------------------------------' + '<br /><br /> #notavideo' + '<br /><br /> http://app.notavideo.com.ar' + '<br /><br />https://www.youtube.com/jacetutoriales',
+            	copia = vidlink + selection + pagelink,
+
+            	//Crea un contenedor y lo oculta
+
+           		newdiv = document.createElement('div');
+        		newdiv.style.position = 'absolute';
+        		newdiv.style.left = '-99999px';
+
+        		//Inserta el contenedor, lo llena con el texto y define la nueva seleccion
+        		document.body.appendChild(newdiv);
+        		newdiv.innerHTML = copia;
+        		selection.selectAllChildren(newdiv);
+
+        		window.setTimeout(function () {
+            		document.body.removeChild(newdiv);
+        		}, 100);
+   			}
+
+   		document.addEventListener('copy', addLink);
+
+	}
+
+$(document).ready(function(){
+	
+  var player = document.getElementById("video");
+  var cadena = "";
+  var textocompleto=[];
+  var cant = 0;
+
+
+/***********************FUNCIÓN CLICK TOMA EL ID DE FACEBOOK*********************************/	
+
+		$("#iniciar").click(function(){
+				cadena = $("#enlace").val();
+				cant = contardigitos(cadena);
+				x=cadena.slice(-1 * cant-1);
+				cadena=x.slice(0,cant);
+				if(cadena != ""){
+					//document.getElementById('videito').setAttribute('data-href', 'https://www.facebook.com/watch/?v=2390937797871296');
+					//$('#videito').replaceWith('<div id="videito" class="fb-video" data-href="https://www.facebook.com/watch/?v='+cadena+'" data-allowfullscreen="true"autoplay = "true"></div>');
+				 $('iframe').replaceWith('<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fchartersforchange%2Fvideos%2F'+cadena+'%2F&show_text=false&autoplay=true&width=912&height=510&appId" width="912" height="510" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="false" id="video"></iframe>');
+			}
+		});
+/***********************FUNCIÓN PARA CONTAR CARACTERES*********************************/	
+		function contardigitos( str ) {
+			var acu = 0;
+
+			Array.prototype.forEach.call( str, function( val ) {
+			acu += ( val.charCodeAt( 0 ) > 47 ) && ( val.charCodeAt( 0 ) < 58 ) ? 1 : 0;
+			} );
+
+			return acu;
+		}
+
+/***********************FUNCIÓN PAUSA Y REPRODUCCION POR TECLADO*********************************/	
+
+  	 window.fbAsyncInit = function() {
+  	 	
+      FB.init({
+        xfbml      : true,
+        version    : 'v8.0'
+      });
+
+      // Get Embedded Video Player API Instance
+      var my_video_player;
+      FB.Event.subscribe('xfbml.ready', function(msg) {
+        if (msg.type === 'video') {
+          my_video_player = msg.instance;
+        }
+      });
+
+        var player_status = "play";
+
+          function cambiar(){
+              my_video_player.play();
+            }
+
+            function pausa(){
+              my_video_player.pause();
+            }
+
+
+        $('body').on("keydown", function(e) {
+
+          if(player_status == "play"){
+
+                if (e.ctrlKey && e.which === 32) {
+                    pausa();
+                }
+
+                player_status = "pause";
+
+            }
+
+            else if(player_status == "pause"){
+
+
+                if (e.ctrlKey && e.which === 32) {
+                  cambiar();
+                }
+
+                player_status = "play";
+
+            }
+        });
+
+    };
+
+
+
+});
+/***********************************DESCARGAR ARCHIVOS***********************************/
+
+function descargarArchivo(contenidoEnBlob, nombreArchivo) {
+    var reader = new FileReader();
+    reader.onload = function (event) {
+        var save = document.createElement('a');
+        save.href = event.target.result;
+        save.target = '_blank';
+        save.download = nombreArchivo;
+        var clicEvent = new MouseEvent('click', {
+            'view': window,
+                'bubbles': true,
+                'cancelable': true
+        });
+        save.dispatchEvent(clicEvent);
+        (window.URL || window.webkitURL).revokeObjectURL(save.href);
+    };
+    reader.readAsDataURL(contenidoEnBlob);
+};
+
+//Función de ayuda: reúne los datos a exportar en un solo objeto
+
+function obtenerDatos() {
+    return {
+        texto: document.getElementById('texto').value,
+        fecha: (new Date()).toLocaleDateString(),
+		link: document.getElementById('enlace').value
+    };
+};
+
+$.fn.enterKey = function (fnc) {
+    return this.each(function () {
+        $(this).keypress(function (ev) {
+            var keycode = (ev.keyCode ? ev.keyCode : ev.which);
+            if (keycode == '13') {
+                fnc.call(this, ev);
+            }
+        })
+    })
+}
+
+
+
+//Genera un objeto Blob con los datos en un archivo TXT
+
+function generarTexto(datos) {
+    var texto = [];
+	texto.push(datos.fecha);
+    texto.push('\r\n');
+	texto.push('------------------------------');
+	texto.push('\r\n');
+	texto.push(datos.link);
+	texto.push('\r\n');
+	texto.push('------------------------------');
+	texto.push('\r\n');
+	texto.push(datos.texto);
+
+	
+	texto.push('\r\n');
+	texto.push('\r\n');
+	texto.push('------------------------------');
+	texto.push('\r\n');
+	texto.push('app.notavideo.com.ar');
+	texto.push('\r\n');
+	texto.push('www.youtube.com/jacetutoriales');
+    //El contructor de Blob requiere un Array en el primer parámetro
+    //así que no es necesario usar toString. el segundo parámetro
+    //es el tipo MIME del archivo
+    return new Blob(texto, {
+		encoding:"UTF-8",
+        type: 'text/plain;charset=UTF-8'
+    });
+};
+
+
+
+document.getElementById('guardar').addEventListener('click', function () {
+
+	//Toma los datos del textbox y el texto puesto en el input del titulo
+
+    var datos = obtenerDatos();
+    var name = document.getElementById("titulo").value;
+
+    if(name === ""){
+
+    	//Si el input esta vacio, guarda el archivo como "notas.txt"
+
+    	descargarArchivo(generarTexto(datos), "notas.txt");
+
+    } else {
+
+    	descargarArchivo(generarTexto(datos), name, ".txt");
+
+	}
+
+}, false);
+
+
+/*******************************************************************************/	
+		
+		
+		
+</script>
+
+
+</body>
+</html>
