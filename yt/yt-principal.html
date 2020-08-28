@@ -48,7 +48,7 @@
 		<nav class="nav_menu">
 			<ul>
 				<li><a href="../fb/fb-principal.html">Notavideo Facebook</a></li>
-				<li><a href="yt-cine.html" id = "cambio">Cambiar aspecto</a></li>
+				<li><a href="" id = "cambio">Cambiar aspecto</a></li>
 				<li><a class = "compartir" id="noche">Modo Nocturno</a></li>
 				<li><a href="https://www.instagram.com/jace.si/">Instagram</a><span></span></li>
 				<li><a href="https://www.youtube.com/channel/UCIuEephCWSjFomnJONNnhsw">Canal de YouTube</a><span></span></li>
@@ -102,8 +102,13 @@
 		btnSwitch.classList.toggle('active');	
 	})
 
+//***********************************CAMBIAR MODO************************************/
+	
+	const btnSwitch = document.querySelector('#cambio');
 
-
+	btnSwitch.addEventListener('click', () => {
+		document.body.className= "segundoModo";
+	});
 			
 /***********************FUNCIÓN PARA COPIAR EL TEXTO*********************************/	
 
