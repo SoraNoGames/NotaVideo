@@ -11,8 +11,11 @@ body.dark{
 	padding: 0;
 }
 #borrar{
-	color: white;
+	color: #ff5252;
 	cursor: pointer;
+	position: absolute;
+	left: 35.5%;
+	top: 21px;
 }
 
 .nav_bar{
@@ -92,7 +95,6 @@ body.dark .menu:hover{
 
 iframe{
 	border: none;
-	width: 60%;
 }
 
 #nav-left{
@@ -188,19 +190,27 @@ section{
 }
 
 #texto{
-
 	width:40%;
-	height:500px;
 	font-size: 18px;
-	margin-bottom:7px;
-
+}
+.video_camb{
+	height: 400px;
+}
+.text{
+	height: 499px;
+	border-top: none;
+	border-left: none;
+	padding: 2px;
+}
+.text_camb{
+	height: 140px;
 }
 
 #herramientas{
 
-	margin-top: 20px;
+	margin-top: 7px;
 	margin-left: 4.7%;
-	margin-bottom: 25px;
+	margin-bottom: 0px;
 
 }	
 
@@ -267,7 +277,7 @@ section{
 
 /*Se reemplazan diseños cuando se reduce el tamaño de la pantalla*/
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 750px) {
 
 	.iconito{
 		display: none;
@@ -285,6 +295,10 @@ section{
 	}
 	#nav-right{
 		display: none;
+	}
+	#borrar{
+		top: 24px;
+		left: 62%;	
 	}
 
 	.menu{
@@ -319,7 +333,6 @@ section{
 	#logo{
 		margin-top: 12px;
 	}
-
 }
 
 .titulo{

@@ -48,7 +48,7 @@
 		<nav class="nav_menu">
 			<ul>
 				<li><a href="../fb/fb-principal.html">Notavideo Facebook</a></li>
-				<li><a href="" id = "cambio">Cambiar aspecto</a></li>
+				<li><a href="#" id = "cambio" onclick="cambio()">Cambiar aspecto</a></li>
 				<li><a class = "compartir" id="noche">Modo Nocturno</a></li>
 				<li><a href="https://www.instagram.com/jace.si/">Instagram</a><span></span></li>
 				<li><a href="https://www.youtube.com/channel/UCIuEephCWSjFomnJONNnhsw">Canal de YouTube</a><span></span></li>
@@ -63,10 +63,10 @@
 
 	</header>
 
-	<section class="start-xs row" id = "contenedor_video">
+	<section class="row center-xs" id = "contenedor_video">
 
 			<iframe class="col-xs-12 col-sm-8 col-md-8 col-lg-8" id="chau_flex" width="820" height="500" src="https://www.youtube.com/embed/Zs0mvBLtCcw?rel=0&amp;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
-			<textarea class = "col-xs-12 col-sm-4 col-md-4 col-lg-4" id="texto" placeholder="Escribí en este lugar tus notas. Ctrl + Barra Espaciadora, para Pausar el video"></textarea>
+			<textarea class = "col-xs-12 col-sm-4 col-md-4 col-lg-4 text" id="texto" placeholder="Escribí en este lugar tus notas. Ctrl + Barra Espaciadora, para Pausar el video"></textarea>
 
 	</section>
 
@@ -103,12 +103,24 @@
 	})
 
 //***********************************CAMBIAR MODO************************************/
+	var conta=1;
 	
-	const btnSwitch = document.querySelector('#cambio');
-
-	btnSwitch.addEventListener('click', () => {
-		document.body.className= "segundoModo";
-	});
+	function cambio(){
+		if (conta==1){
+			document.getElementById("chau_flex").className = "col-xs-12 col-sm-11 col-md-11 col-lg-11 video_camb";
+			document.getElementById("texto").className = "col-xs-12 col-sm-11 col-md-11 col-lg-11 text_camb";
+			conta=0;
+		}
+		else{
+					document.getElementById("chau_flex").className = "col-xs-12 col-sm-8 col-md-8 col-lg-8 video";
+					document.getElementById("texto").className = "col-xs-12 col-sm-4 col-md-4 col-lg-4 text";
+			conta=1;
+		}
+	}
+	
+	
+	
+	
 			
 /***********************FUNCIÓN PARA COPIAR EL TEXTO*********************************/	
 
